@@ -14,7 +14,10 @@ struct C {
   A a;
   B b;
 
-   C() { puts("C()"); }
+  C()
+  : a(), b() {
+    puts("C()");
+  }
   ~C() { puts("~C()"); }
 };
 
