@@ -10,3 +10,4 @@ typetest
 unique_ptr
 list-initializers
 array-bounds
+accumulate
