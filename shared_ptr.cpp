@@ -6,14 +6,19 @@
 void shared_ptr() {
   std::shared_ptr<int> p1(new int(5));
   std::shared_ptr<int> p2 = p1; // Both now own the memory.
+  assert(p1.use_count() == 2);
 
   // Memory still exists, due to p2:
   p1.reset();
   assert(p1.get() == NULL && p2.get() != NULL);
+  assert(p2.use_count() == 1);
+  assert(p1.use_count() == 0);
 
   // Deletes the memory, since no one else owns the memory.
   p2.reset();
   assert(p1.get() == NULL && p2.get() == NULL);
+  assert(p2.use_count() == 0);
+  assert(p1.use_count() == 0);
 }
 
 void weak_ptr() {
@@ -30,8 +35,10 @@ void weak_ptr() {
   } // p2 is destroyed. Memory is owned by p1.
 
   assert(wp1.lock() != NULL);
+  assert(wp1.use_count() == 1);
   p1.reset(); // Memory is deleted.
   assert(wp1.lock() == NULL);
+  assert(wp1.use_count() == 0);
 
   std::shared_ptr<int> p3 = wp1.lock();
   // Memory is gone, so we get an empty shared_ptr.
