@@ -13,3 +13,4 @@ array-bounds
 accumulate
 object-lifetime
 shared_ptr
+casts

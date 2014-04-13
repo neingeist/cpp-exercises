@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 
 # Build options
-set(CMAKE_CXX_COMPILER "clang++")
+set(CMAKE_CXX_COMPILER "g++") # (g++ seems to actually do something with -Weffc++)
 set(CMAKE_CXX_FLAGS    "${CMAKE_CXX_FLAGS} -std=c++11")
 set(CMAKE_CXX_FLAGS    "${CMAKE_CXX_FLAGS} -Wall -pedantic -Wextra -Weffc++")
 
@@ -13,3 +13,4 @@ add_executable(array-bounds array-bounds.cpp)
 add_executable(accumulate accumulate.cpp)
 add_executable(object-lifetime object-lifetime.cpp)
 add_executable(shared_ptr shared_ptr.cpp)
+add_executable(casts casts.cpp)
