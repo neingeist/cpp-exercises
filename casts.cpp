@@ -12,7 +12,7 @@ class mybase {
       : ids(ids) {}
 
   virtual void foo() {
-    std::cout << "i'm a mybase! ids: " << this->ids << std::endl;
+    std::cout << "i'm a mybase! ids: " << ids << std::endl;
   }
 };
 
@@ -24,7 +24,7 @@ class myclass : public mybase {
     : mybase(ids) {}
 
   void foo() {
-    std::cout << "i'm a myclass! ids: " << this->ids << std::endl;
+    std::cout << "i'm a myclass! ids: " << ids << std::endl;
   }
 
 };
