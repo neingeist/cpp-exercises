@@ -64,7 +64,7 @@ int main() {
 
   std::cout << "== ccast" << std::endl;
   ccast(&a);
-  ccast(&base);
+  ccast(&base); // XXX actually works!
 
   std::cout << "== staticcast" << std::endl;
   staticcast(&a);
