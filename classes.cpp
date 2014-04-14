@@ -4,7 +4,7 @@
 class Animal {
   public:
     // Note: using *virtual* does the difference here!
-    virtual void makeSound() {
+    virtual void makeSound() const {
       std::cout << "<generic animal sound> from " << this << std::endl;
     }
 
@@ -18,14 +18,14 @@ class Animal {
 
 class Cow : public Animal {
   public:
-    void makeSound() {
+    void makeSound() const {
       std::cout << "Mooh. from " << this << std::endl;
     }
 };
 
 class Cat : public Animal {
   public:
-    void makeSound() {
+    void makeSound() const {
       std::cout << "Meow? from " << this << std::endl;
     }
 };

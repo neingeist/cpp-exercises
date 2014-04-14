@@ -9,7 +9,7 @@
 int myfunction (int x, int y) { return x+2*y; }
 
 struct myclass {
-  int operator()(int x, int y) { return x+3*y; }
+  int operator()(int x, int y) const { return x+3*y; }
 } myobject;
 
 int main() {
