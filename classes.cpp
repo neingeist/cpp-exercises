@@ -3,6 +3,13 @@
 
 class Animal {
   public:
+    Animal() {
+      std::cout << "constructor" << std::endl;
+    }
+    Animal(const Animal& other) {
+      std::cout << "copy constructor" << std::endl;
+    }
+
     // Note: using *virtual* does the difference here!
     virtual void makeSound() const {
       std::cout << "<generic animal sound> from " << this << std::endl;
@@ -49,16 +56,21 @@ int main() {
   std::cout << "== Some animals" << std::endl;
   Animal animal;
   animal.makeSound();
+
+  std::cout << "== animal" << std::endl;
   call(animal);
   callref(animal);
   callptr(&animal);
 
+  std::cout << "== cat" << std::endl;
   animal = cat; // <- lol, operator
   animal.makeSound();
   call(cat);
   callref(cat); // <- meow
+  callref(animal); // <- generic
   callptr(&cat); // <- meow
 
+  std::cout << "== cow" << std::endl;
   animal = cow; // <- lol, operator
   animal.makeSound();
   call(cow);
