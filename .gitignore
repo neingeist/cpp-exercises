@@ -16,3 +16,4 @@ shared_ptr
 casts
 classes
 lvalues
+bad_alloc
