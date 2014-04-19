@@ -7,7 +7,7 @@ class Animal {
       std::cout << "constructor" << std::endl;
     }
     Animal(const Animal& other) {
-      std::cout << "copy constructor" << std::endl;
+      std::cout << "copy constructor (" << &other << ")" << std::endl;
     }
 
     // Note: using *virtual* does the difference here!
