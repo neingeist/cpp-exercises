@@ -1,4 +1,5 @@
 #include <cassert>
+#include <iostream>
 #include <memory>
 #include <vector>
 
@@ -67,8 +68,35 @@ void weak_ptr() {
   }
 }
 
+void add_one(std::shared_ptr<int> i) {
+  (*i)++;
+}
+
+void make_shared() {
+  std::cout << __FUNCTION__ << std::endl;
+
+  std::shared_ptr<int> sp = std::shared_ptr<int>(new int(12));
+  assert(*sp == 12);
+  add_one(sp);
+  assert(*sp == 13);
+
+  auto sp2 = std::shared_ptr<int>(new int(12));
+  assert(*sp2 == 12);
+  add_one(sp2);
+  add_one(sp2);
+  add_one(sp2);
+  assert(*sp2 == 15);
+
+  auto sp3 = std::make_shared<int>(12);
+  assert(*sp3 == 12);
+  add_one(sp3);
+  add_one(sp3);
+  assert(*sp3 == 14);
+}
+
 int main() {
   shared_ptr();
   shared_ptr_container();
   weak_ptr();
+  make_shared();
 }
