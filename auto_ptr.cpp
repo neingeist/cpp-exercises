@@ -2,6 +2,9 @@
 #include <iostream>
 #include <memory>
 
+// auto_ptr<> is deprecated, i know.
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
 int main() {
     int *i = new int;
     std::auto_ptr<int> x(i);
