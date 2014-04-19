@@ -6,6 +6,8 @@
 // From Wikipedia.
 
 void shared_ptr() {
+  std::cout << __FUNCTION__ << std::endl;
+
   std::shared_ptr<int> p1(new int(5));
   std::shared_ptr<int> p2 = p1; // Both now own the memory.
   assert(p1.use_count() == 2);
@@ -24,6 +26,8 @@ void shared_ptr() {
 }
 
 void shared_ptr_container() {
+  std::cout << __FUNCTION__ << std::endl;
+
   std::shared_ptr<int> p1(new int(5));
   std::shared_ptr<int> p2 = p1; // Both now own the memory.
   assert(p1.use_count() == 2);
@@ -42,6 +46,8 @@ void shared_ptr_container() {
 }
 
 void weak_ptr() {
+  std::cout << __FUNCTION__ << std::endl;
+
   std::shared_ptr<int> p1(new int(5));
   std::weak_ptr<int> wp1 = p1; // p1 owns the memory.
 
