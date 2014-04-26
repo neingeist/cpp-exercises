@@ -17,3 +17,4 @@ casts
 classes
 lvalues
 bad_alloc
+rtti
