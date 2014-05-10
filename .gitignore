@@ -18,3 +18,4 @@ classes
 lvalues
 bad_alloc
 rtti
+future

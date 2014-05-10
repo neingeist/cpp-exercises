@@ -18,3 +18,6 @@ add_executable(classes classes.cpp)
 add_executable(lvalues lvalues.cpp)
 add_executable(bad_alloc bad_alloc.cpp)
 add_executable(rtti rtti.cpp)
+
+add_executable(future future.cpp)
+set_target_properties(future PROPERTIES LINK_FLAGS "-pthread")
