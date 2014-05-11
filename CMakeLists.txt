@@ -21,3 +21,9 @@ add_executable(rtti rtti.cpp)
 
 add_executable(future future.cpp)
 set_target_properties(future PROPERTIES LINK_FLAGS "-pthread")
+
+# those are c++14:
+
+add_executable(return-type-deduction return-type-deduction.cpp)
+#XXX a bit ugly, as the -std=c++1y gets appended to the other flags, which say -std=c++11
+set_source_files_properties(return-type-deduction.cpp PROPERTIES COMPILE_FLAGS "-std=c++1y")
