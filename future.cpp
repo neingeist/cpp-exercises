@@ -6,8 +6,8 @@
 #include <chrono>         // std::chrono::milliseconds
 
 // a non-optimized way of checking for prime numbers.
-bool is_prime (int x) {
-  for (int i=2; i<x; ++i) {
+bool is_prime (long int x) {
+  for (long int i=2; i<x; ++i) {
     if (x%i == 0) return false;
   }
   return true;
@@ -32,7 +32,7 @@ void explicitly_waiting() {
 }
 
 void implicitly_waiting() {
-  int p2 = 838041641;
+  long int p2 = 685102597328182763;
 
   std::future<bool> fut = std::async(std::launch::async, is_prime, p2);
   std::cout << "just getting the result, doing an implicit wait():" << std::endl;
