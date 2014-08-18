@@ -20,3 +20,4 @@ bad_alloc
 rtti
 future
 return-type-deduction
+division
