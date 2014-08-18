@@ -14,5 +14,10 @@ int main() {
   assert(2.0/2 == 1);
   assert(2.0/2 == 1.0);
 
+  assert(0/2.0 == 0);
+  assert(1/2.0 == 0.5);
+  assert(2/2.0 == 1);
+  assert(2/2.0 == 1.0);
+
   std::cout << "divided we stand." << std::endl;
 }
