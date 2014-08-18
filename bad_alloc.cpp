@@ -11,7 +11,7 @@ void dr_evil(int counter) {
 }
 
 int foo(void) {
-  for (int counter=0; counter<10; counter++) {
+  for (int counter = 0; counter < 20; counter++) {
     try {
       cout << "About to call dr_evil with counter == " << counter << endl;
       dr_evil(counter);
