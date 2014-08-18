@@ -5,7 +5,7 @@
 class Animal {
   public:
     // virtual std::string talk() = 0; /* pure virtual */
-    virtual std::string talk() { ; /* or an implementation */
+    virtual std::string talk() { /* or an implementation */
       return "<sound>";
     }
 };
