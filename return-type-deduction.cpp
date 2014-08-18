@@ -1,4 +1,4 @@
-/* http://en.wikipedia.org/wiki/C++14 */
+// http://en.wikipedia.org/wiki/C++14
 
 #include <cassert>
 #include <iostream>

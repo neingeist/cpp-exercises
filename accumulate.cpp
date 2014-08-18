@@ -14,7 +14,7 @@ struct myclass {
 
 int main() {
   int init = 100;
-  int numbers[] = {10,20,30};
+  int numbers[] = {10, 20, 30};
   int res;
 
   std::cout << "using default accumulate: ";

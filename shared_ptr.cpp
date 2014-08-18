@@ -9,7 +9,7 @@ void shared_ptr() {
   std::cout << __FUNCTION__ << std::endl;
 
   std::shared_ptr<int> p1(new int(5));
-  std::shared_ptr<int> p2 = p1; // Both now own the memory.
+  std::shared_ptr<int> p2 = p1;  // Both now own the memory.
   assert(p1.use_count() == 2);
 
   // Memory still exists, due to p2:
@@ -29,7 +29,7 @@ void shared_ptr_container() {
   std::cout << __FUNCTION__ << std::endl;
 
   std::shared_ptr<int> p1(new int(5));
-  std::shared_ptr<int> p2 = p1; // Both now own the memory.
+  std::shared_ptr<int> p2 = p1;  // Both now own the memory.
   assert(p1.use_count() == 2);
 
   std::vector<std::shared_ptr<int>> v;
@@ -49,20 +49,20 @@ void weak_ptr() {
   std::cout << __FUNCTION__ << std::endl;
 
   std::shared_ptr<int> p1(new int(5));
-  std::weak_ptr<int> wp1 = p1; // p1 owns the memory.
+  std::weak_ptr<int> wp1 = p1;  // p1 owns the memory.
 
   {
-    std::shared_ptr<int> p2 = wp1.lock(); //Now p1 and p2 own the memory.
+    std::shared_ptr<int> p2 = wp1.lock();  // Now p1 and p2 own the memory.
     assert(p2 != NULL);
-    if (p2) { // As p2 is initialized from a weak pointer,
-              // you have to check if the memory still exists!
+    if (p2) {  // As p2 is initialized from a weak pointer,
+               // you have to check if the memory still exists!
       // Do something with p2
     }
-  } // p2 is destroyed. Memory is owned by p1.
+  }  // p2 is destroyed. Memory is owned by p1.
 
   assert(wp1.lock() != NULL);
   assert(wp1.use_count() == 1);
-  p1.reset(); // Memory is deleted.
+  p1.reset();  // Memory is deleted.
   assert(wp1.lock() == NULL);
   assert(wp1.use_count() == 0);
 

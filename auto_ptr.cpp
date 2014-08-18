@@ -13,9 +13,9 @@ int main() {
 
     y = x;
 
-    std::cout << x.get() << std::endl; // Print NULL
+    std::cout << x.get() << std::endl;  // Print NULL
     assert(x.get() == NULL);
-    std::cout << y.get() << std::endl; // Print non-NULL address i
+    std::cout << y.get() << std::endl;  // Print non-NULL address i
     assert(y.get() != NULL);
 
     return 0;

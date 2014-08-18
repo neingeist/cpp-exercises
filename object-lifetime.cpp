@@ -1,12 +1,12 @@
 #include <cstdio>
 
 struct A {
-   A() { puts("A()"); }
+  A() { puts("A()"); }
   ~A() { puts("~A()"); }
 };
 
 struct B {
-   B() { puts("B()"); }
+  B() { puts("B()"); }
   ~B() { puts("~B()"); }
 };
 

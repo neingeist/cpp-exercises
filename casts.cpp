@@ -3,11 +3,9 @@
 
 class mybase {
   protected:
-
     std::string ids;
 
   public:
-
     mybase(std::string ids)
       : ids(ids) {}
 
@@ -17,16 +15,13 @@ class mybase {
 };
 
 class myclass : public mybase {
-
   public:
-
   myclass(std::string ids)
     : mybase(ids) {}
 
   void foo() {
     std::cout << "i'm a myclass! ids: " << ids << std::endl;
   }
-
 };
 
 void nocast(myclass* x) {
@@ -40,8 +35,8 @@ void ccast(void* x) {
 }
 
 void staticcast(void* x) {
-  // C++ static_cast. When I *know* it's myclass*, and want to revert an implicit
-  // conversion.
+  // C++ static_cast. When I *know* it's myclass*, and want to revert an
+  // implicit conversion.
   myclass* foo = static_cast<myclass*>(x);
   foo->foo();
 }
@@ -64,11 +59,11 @@ int main() {
 
   std::cout << "== ccast" << std::endl;
   ccast(&a);
-  ccast(&base); // XXX actually works!
+  ccast(&base);  // XXX actually works!
 
   std::cout << "== staticcast" << std::endl;
   staticcast(&a);
-  staticcast(&base); // XXX actually works!
+  staticcast(&base);  // XXX actually works!
 
   std::cout << "== dynamiccast" << std::endl;
   dynamiccast(&a);

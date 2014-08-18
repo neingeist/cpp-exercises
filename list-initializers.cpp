@@ -7,7 +7,6 @@
 using namespace std;
 
 int main() {
-
     // notice how the lists are nested to match the templates' parameters:
     map<string, vector<pair<string, int>>> name_languages_year {
         {"Dennis Ritchie",    {{"B",      1969}, {"C",        1973}}},
@@ -27,5 +26,4 @@ int main() {
 
     // prints 'Lisp':
     cout << name_languages_year["John McCarthy"].at(0).first << endl;
-
 }

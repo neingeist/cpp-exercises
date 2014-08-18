@@ -63,37 +63,37 @@ int main() {
   callptr(&animal);
 
   std::cout << "== cat" << std::endl;
-  animal = cat; // <- lol, operator
+  animal = cat;  // <- lol, operator
   animal.makeSound();
   call(cat);
-  callref(cat); // <- meow
-  callref(animal); // <- generic
-  callptr(&cat); // <- meow
+  callref(cat);  // <- meow
+  callref(animal);  // <- generic
+  callptr(&cat);  // <- meow
 
   std::cout << "== cow" << std::endl;
-  animal = cow; // <- lol, operator
+  animal = cow;  // <- lol, operator
   animal.makeSound();
   call(cow);
-  callref(cow); // <- mooh
-  callptr(&cow); // <- mooh
+  callref(cow);  // <- mooh
+  callptr(&cow);  // <- mooh
 
   std::cout << "== refs" << std::endl;
   Animal &aref = cat;
-  aref.makeSound(); // <- meow
-  aref = cow; // <- lol, operator
-  aref.makeSound(); // <- meow, still
+  aref.makeSound();  // <- meow
+  aref = cow;  // <- lol, operator
+  aref.makeSound();  // <- meow, still
 
   std::cout << "== vector<Animal>:" << std::endl;
   // Does nothing:
-  std::vector<Animal> animals = { cat, cow }; // <- Copies
-  for (auto &a: animals) {
+  std::vector<Animal> animals = { cat, cow };  // <- Copies
+  for (auto &a : animals) {
     a.makeSound();
   }
 
   std::cout << "== vector<Animal*>:" << std::endl;
   // Meow? Mooh.
   std::vector<Animal*> animalptrs = { &cat, &cow };
-  for (auto &a: animalptrs) {
+  for (auto &a : animalptrs) {
     a->makeSound();
   }
 }

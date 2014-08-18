@@ -26,7 +26,7 @@ void container() {
   v.push_back(std::move(q));
   assert(q == NULL);
 
-  for(auto &e: v) {
+  for (auto &e : v) {
     std::cout << *e << std::endl;
   }
 }

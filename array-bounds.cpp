@@ -6,12 +6,12 @@ void classic() {
   int array[2];
   array[0] = 1;
   array[1] = 2;
-  array[3] = 3; // <- clang++ -Warray-bounds warns about this
+  array[3] = 3;  // <- clang++ -Warray-bounds warns about this
 
   int n = 10;
-  std::cout << array[3] << std::endl; // no warning!
-  std::cout << array[4] << std::endl; // no warning!
-  std::cout << array[n-1] << std::endl; // no warning!
+  std::cout << array[3] << std::endl;  // no warning!
+  std::cout << array[4] << std::endl;  // no warning!
+  std::cout << array[n-1] << std::endl;  // no warning!
 }
 
 void std_array() {
@@ -22,7 +22,7 @@ void std_array() {
   // whoopsie
   array[2] = 3;
 
-  for(auto &e: array) {
+  for (auto &e : array) {
     std::cout << e << " ";
   }
   std::cout << std::endl;
@@ -44,10 +44,10 @@ void std_vector() {
   }
   vector.resize(10);
   vector.at(2) = 3;
-  vector[1] = 2; // should now work
+  vector[1] = 2;  // should now work
   // vector[3] = 3; // SEGFAULT
 
-  for(auto &e: vector) {
+  for (auto &e : vector) {
     std::cout << e << " ";
   }
   std::cout << std::endl;

@@ -1,8 +1,7 @@
 #include <cassert>
 #include <iostream>
 
-int main()
-{
+int main() {
   int someInteger = 256;
   short someShort;
   long someLong;
@@ -16,7 +15,7 @@ int main()
   assert(someInteger == 514);
 
   someShort = (short) someInteger;
-  assert((int) someShort == 514); // (short more than 1 byte)
+  assert((int) someShort == 514);  // (short more than 1 byte)
 
   someLong = someShort * 10000;
   assert(someLong == 5140000l);

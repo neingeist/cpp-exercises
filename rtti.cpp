@@ -32,7 +32,8 @@ class Hammer : public Tool {
     }
 
     void use(Nail nail) {
-      std::cout << "The nail is " << nail.getLength() << " cm long" << std::endl;
+      std::cout << "The nail is " << nail.getLength() << " cm long"
+                << std::endl;
     }
 };
 
@@ -50,7 +51,7 @@ void useSomeTool(Tool &tool) {
   std::cout << "Look, it's a " << typeid(tool).name() << "!" << std::endl;
 
   // XXX What about subclasses of Hammer?
-  if(typeid(tool) == typeid(Hammer)) {
+  if (typeid(tool) == typeid(Hammer)) {
     std::cout << "Stop! ";
   }
   tool.use();
