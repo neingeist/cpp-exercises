@@ -28,3 +28,13 @@ set_target_properties(future PROPERTIES LINK_FLAGS "-pthread")
 add_executable(return-type-deduction return-type-deduction.cpp)
 #XXX a bit ugly, as the -std=c++1y gets appended to the other flags, which say -std=c++11
 set_source_files_properties(return-type-deduction.cpp PROPERTIES COMPILE_FLAGS "-std=c++1y")
+
+# checks
+add_custom_command(OUTPUT check-cpplint
+  COMMAND find . -path ./ext -prune -or -path ./*CMakeFiles -prune -or \( -name *.cc -or -name *.cpp \) -print0 | xargs -0 cpplint
+  WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+  COMMENT "Running cpplint" VERBATIM
+)
+add_custom_target(check
+  DEPENDS check-cpplint
+)
