@@ -2,7 +2,8 @@
 
 #include <iostream>
 
-using namespace std;
+using std::cout;
+using std::endl;
 
 void dr_evil(int counter) {
   int *array = new int[100000000000/(1+10*counter)];
