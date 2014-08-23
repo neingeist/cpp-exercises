@@ -20,6 +20,7 @@ add_executable(bad_alloc bad_alloc.cpp)
 add_executable(rtti rtti.cpp)
 add_executable(poly poly.cpp)
 add_executable(division division.cpp)
+add_executable(ohai-const-strings ohai-const-strings.cpp)
 
 add_executable(future future.cpp)
 set_target_properties(future PROPERTIES LINK_FLAGS "-pthread")
