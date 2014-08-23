@@ -20,10 +20,9 @@ const char** convert_to_c(const std::vector<std::string> strings) {
   // Note: perfectly fine to "new" const char*.
   const char** strings_c = new const char*[strings.size()+1];
   for (size_t i = 0; i < strings.size(); ++i) {
-    // XXX No need to copy the string here.
-    char* string_c = new char[strings.at(i).size()+1];
-    strncpy(string_c, strings.at(i).c_str(), strings.at(i).size()+1);
-    strings_c[i] = string_c;
+    // Note: const char** = non-const "array" to const char*, i.e. can modify
+    //       pointers to the strings but not the strings themselves.
+    strings_c[i] = strings.at(i).c_str();
   }
   strings_c[strings.size()] = NULL;
 
@@ -31,9 +30,6 @@ const char** convert_to_c(const std::vector<std::string> strings) {
 }
 
 void free_c(const char** strings_c) {
-  for (size_t i = 0; strings_c[i] != NULL; ++i) {
-    delete[] strings_c[i];
-  }
   delete[] strings_c;
 }
 
