@@ -3,11 +3,11 @@
 
 /* abstract */
 class Animal {
-  public:
-    // virtual std::string talk() = 0; /* pure virtual */
-    virtual std::string talk() { /* or an implementation */
-      return "<sound>";
-    }
+ public:
+  // virtual std::string talk() = 0; /* pure virtual */
+  virtual std::string talk() { /* or an implementation */
+    return "<sound>";
+  }
 };
 
 class Cat : public Animal {

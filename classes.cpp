@@ -2,39 +2,39 @@
 #include <vector>
 
 class Animal {
-  public:
-    Animal() {
-      std::cout << "constructor" << std::endl;
-    }
-    Animal(const Animal& other) {
-      std::cout << "copy constructor (" << &other << ")" << std::endl;
-    }
+ public:
+  Animal() {
+    std::cout << "constructor" << std::endl;
+  }
+  Animal(const Animal& other) {
+    std::cout << "copy constructor (" << &other << ")" << std::endl;
+  }
 
-    // Note: using *virtual* does the difference here!
-    virtual void makeSound() const {
-      std::cout << "<generic animal sound> from " << this << std::endl;
-    }
+  // Note: using *virtual* does the difference here!
+  virtual void makeSound() const {
+    std::cout << "<generic animal sound> from " << this << std::endl;
+  }
 
-    Animal& operator= (Animal &a) {
-      std::cout << "lol, operator= of " << this;
-      std::cout << "(arg: " << &a << ")" << std::endl;
+  Animal& operator= (Animal &a) {
+    std::cout << "lol, operator= of " << this;
+    std::cout << "(arg: " << &a << ")" << std::endl;
 
-      return *this;
-    }
+    return *this;
+  }
 };
 
 class Cow : public Animal {
-  public:
-    void makeSound() const {
-      std::cout << "Mooh. from " << this << std::endl;
-    }
+ public:
+  void makeSound() const {
+    std::cout << "Mooh. from " << this << std::endl;
+  }
 };
 
 class Cat : public Animal {
-  public:
-    void makeSound() const {
-      std::cout << "Meow? from " << this << std::endl;
-    }
+ public:
+  void makeSound() const {
+    std::cout << "Meow? from " << this << std::endl;
+  }
 };
 
 void call(Animal a) {

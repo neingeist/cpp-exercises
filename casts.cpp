@@ -2,12 +2,12 @@
 #include <string>
 
 class mybase {
-  protected:
-    std::string ids;
+ protected:
+  std::string ids;
 
-  public:
-    mybase(std::string ids)
-      : ids(ids) {}
+ public:
+  mybase(std::string ids)
+    : ids(ids) {}
 
   virtual void foo() {
     std::cout << "i'm a mybase! ids: " << ids << std::endl;
@@ -15,7 +15,7 @@ class mybase {
 };
 
 class myclass : public mybase {
-  public:
+ public:
   myclass(std::string ids)
     : mybase(ids) {}
 
