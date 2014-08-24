@@ -5,7 +5,7 @@
 
 class Nail {
  public:
-  Nail(float length)
+  explicit Nail(float length)
   : length(length) {}
 
   float getLength() {
