@@ -1,20 +1,21 @@
 // future example
 // adapted from http://www.cplusplus.com/reference/future/future/
 
-#include <iostream>       // std::cout
-#include <future>         // std::async, std::future
+#include <cassert>
 #include <chrono>         // std::chrono::milliseconds
+#include <future>         // std::async, std::future
+#include <iostream>
 
 // a non-optimized way of checking for prime numbers.
-bool is_prime(long int x) {
-  for (long int i = 2; i < x; ++i) {
+bool is_prime(uint64_t x) {
+  for (uint64_t i = 2; i < x; ++i) {
     if (x%i == 0) return false;
   }
   return true;
 }
 
 void explicitly_waiting() {
-  int p = 817504243;
+  uint64_t p = 817504243;
 
   // call function asynchronously:
   std::future<bool> fut = std::async(std::launch::async, is_prime, p);
@@ -29,16 +30,18 @@ void explicitly_waiting() {
 
   bool x = fut.get();     // retrieve return value
   std::cout << p << " " << (x?"is":"is not") << " prime." << std::endl;
+  assert(x);
 }
 
 void implicitly_waiting() {
-  long int p2 = 685102597328182763;
+  uint64_t p2 = 685102597328182763;
 
   std::future<bool> fut = std::async(std::launch::async, is_prime, p2);
   std::cout << "just getting the result, doing an implicit wait():";
   std::cout << std::endl;
   bool x = fut.get();
   std::cout << p2 << " " << (x?"is":"is not") << " prime." << std::endl;
+  assert(!x);
 }
 
 int main() {
