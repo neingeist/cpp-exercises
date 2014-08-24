@@ -4,45 +4,45 @@
 
 
 class Nail {
-  public:
-    Nail(float length)
-    : length(length) {};
+ public:
+  Nail(float length)
+  : length(length) {}
 
-    float getLength() {
-      return length;
-    }
+  float getLength() {
+    return length;
+  }
 
-  private:
-    float length;
+ private:
+  float length;
 };
 
 
 class Tool {
-  public:
-    virtual void use() {
-      std::cout << "Just using some tool." << std::endl;
-    }
+ public:
+  virtual void use() {
+    std::cout << "Just using some tool." << std::endl;
+  }
 };
 
 
 class Hammer : public Tool {
-  public:
-    virtual void use() {
-      std::cout << "Hammer time!" << std::endl;
-    }
+ public:
+  virtual void use() {
+    std::cout << "Hammer time!" << std::endl;
+  }
 
-    void use(Nail nail) {
-      std::cout << "The nail is " << nail.getLength() << " cm long"
-                << std::endl;
-    }
+  void use(Nail nail) {
+    std::cout << "The nail is " << nail.getLength() << " cm long"
+              << std::endl;
+  }
 };
 
 
 class SledgeHammer : public Hammer {
-  public:
-    void use(Nail nail __attribute__((unused))) {
-      throw std::runtime_error("Can't use a sledge hammer on nails!");
-    }
+ public:
+  void use(Nail nail __attribute__((unused))) {
+    throw std::runtime_error("Can't use a sledge hammer on nails!");
+  }
 };
 
 
